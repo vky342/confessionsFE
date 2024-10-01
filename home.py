@@ -46,7 +46,7 @@ def main():
 
     with tabs[0]:
         st.header("Submit Your Confession")
-        st.markdown("These confessions are highly anonymous (trust me bro 😁) and completely uncensored and unfiltered. The only rule is that there are no rules. You can confess anything.")
+        st.markdown("These confessions are highly anonymous and completely uncensored and unfiltered. The only rule is that there are no rules. You can confess anything.")
         confession_text = st.text_area("Enter your confession here 👇🏻:")
 
         if st.button("Submit"):

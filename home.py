@@ -14,34 +14,10 @@ def reverse_list(lst):
     A new list that is the reversed version of the input list.
   """
 
-  reversed_list = []
-  for item in lst[::-1]:
-    reversed_list.append(item)
-  return reversed_list
+  
 
 def get_confessions():
     # Replace with your logic to create a list of confessions (e.g., empty list)
-    # [{
-    #     "text": "I've been secretly crushing on my best friend for years, but I'm too scared to tell them n my best friend for years, but I'm too scared to tell the n my best friend for years, but I'm too scared to tell the n my best friend for years, but I'm too scared to tell the n my best friend for years, but I'm too scared to tell the.",
-    #     "timestamp": "2023-12-25 12:00:00"  # Replace with actual timestamp
-    # },
-    # {
-    #     "text": "I accidentally deleted my entire photo album and now I can't stop crying.",
-    #     "timestamp": "2024-01-01 18:30:00"  # Replace with actual timestamp
-    # },
-    # {
-    #     "text": "I'm starting to think I might be addicted to social media.",
-    #     "timestamp": "2024-02-14 10:45:00"  # Replace with actual timestamp
-    # },
-    # {
-    #     "text": "I've been hiding a secret from my family that's been eating away at me.",
-    #     "timestamp": "2024-03-20 23:15:00"  # Replace with actual timestamp
-    # },
-    # {
-    #     "text": "I'm so jealous of my sister's success, even though I'm happy for her.",
-    #     "timestamp": "2024-04-05 08:00:00"  # Replace with actual timestamp
-    # }
-    # ]
 
     url = "https://confessionbe.onrender.com/retrieve_data"  # Replace with your actual endpoint URL
 
@@ -51,10 +27,15 @@ def get_confessions():
         print("Request successful!")
         print(response.json())  # Assuming the response is JSON
         confessions = response.json()
+        
     else:
         print("Request failed with status code:", response.status_code)
 
-    return reverse_list(confessions)
+    reversed_list = []
+    for item in confessions[::-1]:
+      reversed_list.append(item)
+
+    return reversed_list
 
 def main():
     st.title("Welcome to Confessions")

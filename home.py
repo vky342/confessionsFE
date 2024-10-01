@@ -22,6 +22,7 @@ def get_confessions():
     url = "https://confessionbe.onrender.com/retrieve_data"  # Replace with your actual endpoint URL
 
     response = requests.get(url)
+    confessions = []
 
     if response.status_code == 200:
         print("Request successful!")

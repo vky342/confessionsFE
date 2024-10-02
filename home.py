@@ -3,30 +3,14 @@ import requests
 import datetime
 import json
 
-
-def reverse_list(lst):
-  """Reverses a given list and returns a new reversed list.
-
-  Args:
-    lst: The list to be reversed.
-
-  Returns:
-    A new list that is the reversed version of the input list.
-  """
-
-  
-
 def get_confessions():
-    # Replace with your logic to create a list of confessions (e.g., empty list)
 
-    url = "https://confessionbe.onrender.com/retrieve_data"  # Replace with your actual endpoint URL
+    url = "https://confessionbe.onrender.com/retrieve_data"  
 
     response = requests.get(url)
     confessions = []
 
-    if response.status_code == 200:
-        print("Request successful!")
-        print(response.json())  # Assuming the response is JSON
+    if response.status_code == 200: 
         confessions = response.json()
         
     else:

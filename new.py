@@ -5,7 +5,7 @@ import json
 import uuid
 
 def get_confessions():
-    url = "https://confessionbe.onrender.com/retrieve_data"  # Replace with your actual endpoint URL
+    url = "http://127.0.0.1:8000/retrieve_data"  # Replace with your actual endpoint URL
 
     response = requests.get(url)
     confessions = []
@@ -28,7 +28,7 @@ def submit_confession(content):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data = {"time": current_time, "content": content}
 
-    url = "https://confessionbe.onrender.com/receive_data"  # Replace with your actual endpoint URL
+    url = "http://127.0.0.1:8000/receive_data"  # Replace with your actual endpoint URL
     response = requests.post(url, json=data)
 
     if response.status_code == 200:
@@ -39,7 +39,7 @@ def submit_confession(content):
 
 def submit_comment(confession_id, comment_text):
 
-    url = f"https://confessionbe.onrender.com/add_comment/{confession_id}"  # Replace with actual URL
+    url = f"http://127.0.0.1:8000/add_comment/{confession_id}"  # Replace with actual URL
     data = {"data": comment_text}
     response = requests.post(url, json=data)
 
@@ -66,9 +66,6 @@ def main():
         if st.button("Submit"):
             submit_confession(confession_text)
 
-
-        st.success("An update has been deployed, which may have resulted in the deletion of some old confessions. We apologize for any inconvenience this may have caused.")
-
     with tabs[1]:
         st.header("Confessions Feed")
         st.markdown("______________")
@@ -89,8 +86,8 @@ def main():
                     for comment in confession["comments"]:
                         st.write(f"- {comment}")
 
-                else:
-                    st.write("No comments yet 🙁")
+                if confession["comments"] == []:
+                        st.write("No comments yet 🙁")
 
                 
                 comment_text_key = f"comment_text_{comment_button_counter}"

@@ -67,7 +67,7 @@ def main():
             submit_confession(confession_text)
 
 
-        st.success("An update has been deployed, which may have resulted in the deletion of some old confessions. We apologize for any inconvenience this may have caused.")
+        st.success("New update! We've addressed some bugs and made minor improvements. Thank you for your valuable feedback.")
 
     with tabs[1]:
         st.header("Confessions Feed")
